@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 
 
@@ -9,14 +10,21 @@ def index(request):
     return render(request,"MusicPlayer1/index.html")
 
 
-def Govinda(request):
-    return HttpResponse("Hello Govinda")
-
 def greet(request,name):
     return render(request,'MusicPlayer1/greet.html',{
         "name": name.capitalize()
     })
-    return HttpResponse(f"Hello {name.capitalize()}")
+    
+
+def christmas(request):
+    now = datetime.datetime.now()
+    return render(request,"MusicPlayer1/christmas.html",{
+        "christmas":now.month==3
+    })
+
+
+
+
 
 
 
